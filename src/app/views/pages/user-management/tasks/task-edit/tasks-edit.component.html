@@ -1,0 +1,137 @@
+<kt-portlet>
+	<kt-portlet-header [title]="getComponentTitle()" [class]="'kt-portlet__head--lg'" [viewLoading$]="loading$">
+		<ng-container ktPortletTools>
+			<a [routerLink]="['../']" class="btn btn-secondary kt-margin-r-10" mat-raised-button matTooltip="Back to the Tasks list">
+				<i class="la la-arrow-left"></i>
+				<span class="kt-hidden-mobile">Back</span>
+			</a>
+			<a href="javascript:;" class="btn btn-secondary kt-margin-r-10" (click)="reset()" [disabled]="selectedTab !== 0" mat-raised-button matTooltip="Reset changes">
+				<i class="la la-cog"></i>
+				<span class="kt-hidden-mobile">Reset</span>
+			</a>
+			<a href="javascript:;" class="btn btn-primary kt-margin-r-10" color="primary" (click)="onSumbit(false)" mat-raised-button matTooltip="Save & Continue">
+				<span class="kt-hidden-mobile">Save</span>
+			</a>
+			<button mat-icon-button [matMenuTriggerFor]="menu" color="primary">
+				<mat-icon>more_vert</mat-icon>
+			</button>
+			<mat-menu #menu="matMenu">
+				<button mat-menu-item color="primary" (click)="onSumbit(true)">Save & Exit</button>
+				<button mat-menu-item color="primary">Save & Duplicate</button>
+				<button mat-menu-item color="primary" (click)="onSumbit(false)">Save & Continue</button>
+			</mat-menu>
+		</ng-container>
+	</kt-portlet-header>
+
+	<kt-portlet-body>
+		<mat-tab-group [(selectedIndex)]="selectedTab">
+			<mat-tab>
+				<ng-template mat-tab-label>
+					<i class="mat-tab-label-icon fa fa-Task"></i>
+					Basic info
+				</ng-template>
+				<ng-template matTabContent>
+					<!--begin::Form-->
+					<div *ngIf="Task">
+						<form [formGroup]="TaskForm" class="kt-form kt-form--group-seperator-dashed">
+
+							<kt-alert *ngIf="hasFormErrors" type="warn" [showCloseButton]="true" [duration]="10000" (close)="onAlertClose($event)">
+								Oh snap! Change a few things up and try submitting again.
+							</kt-alert>
+							<div class="kt-form__section kt-form__section--first">
+								<div class="form-group kt-form__group row">
+									<div class="col-lg-4 kt-margin-bottom-20-mobile">
+										<mat-form-field class="mat-form-field-fluid">
+											<input matInput placeholder="Task Name" [value]="Task.TaskName" formControlName="TaskName"/>
+											<mat-error>Task Name is
+												<strong>required</strong>
+											</mat-error>
+											<mat-hint align="start">Please enter
+												<strong>Task Name</strong>
+											</mat-hint>
+										</mat-form-field>
+									</div>
+									<div class="col-lg-4 kt-margin-bottom-20-mobile">
+										<mat-form-field class="mat-form-field-fluid">
+											<input matInput placeholder="Enter User Full Name" [value]="Task.userFullName" formControlName="userFullName"/>
+											<mat-error>User Full Name is
+												<strong>required</strong>
+											</mat-error>
+											<mat-hint align="start">Please enter
+												<strong>Full Name</strong>
+											</mat-hint>
+										</mat-form-field>
+									</div>
+
+									<div class="col-lg-4 kt-margin-bottom-20-mobile">
+										<mat-form-field class="mat-form-field-fluid">
+											<input type="email" matInput placeholder="Enter User Email" [value]="Task.userEmail" formControlName="userEmail"/>
+											<mat-error>Email is
+												<strong>required</strong>
+											</mat-error>
+											<mat-hint align="start">Please enter
+												<strong>User Email</strong>
+											</mat-hint>
+										</mat-form-field>
+									</div>
+								</div>
+								<div class="form-group kt-form__group row">
+									<div class="col-lg-4 kt-margin-bottom-20-mobile">
+										<mat-form-field class="mat-form-field-fluid">
+											<input matInput placeholder="Enter description" [value]="Task.description" formControlName="description"/>
+											<mat-hint align="start">Please enter
+												<strong>description</strong>
+											</mat-hint>
+										</mat-form-field>
+									</div>
+									<div class="col-lg-4 kt-margin-bottom-20-mobile">
+										<mat-form-field class="mat-form-field-fluid">
+											<input matInput type="time" placeholder="Enter time" [value]="Task.time" formControlName="time"/>
+											<mat-hint align="start">Please enter
+												<strong>time </strong>
+											</mat-hint>
+										</mat-form-field>
+									</div>
+
+									<div class="col-lg-4 kt-margin-bottom-20-mobile">
+										<mat-form-field class="mat-form-field-fluid">
+											<input matInput type="datetime" placeholder="Enter date" [value]="Task.date" formControlName="date"/>
+											<mat-hint align="start">Please enter
+												<strong>date</strong>
+											</mat-hint>
+										</mat-form-field>
+                                    </div>
+                                </div>
+
+                            <div class="form-group kt-form__group row">
+									<div class="col-lg-4 kt-margin-bottom-20-mobile">
+										<mat-form-field class="mat-form-field-fluid">
+                                            <mat-select placeholder="Select API type" formControlName="apiType">
+                                                <mat-option  value="Create">Create</mat-option>
+                                                <mat-option  value="Delete">Delete</mat-option>
+                                                <mat-option  value="Patch">Patch</mat-option>
+                                            </mat-select>	
+										</mat-form-field>
+									</div>
+									
+                                    <div class="col-lg-4 kt-margin-bottom-20-mobile">
+										<!-- <mat-form-field class="mat-form-field-fluid"> -->
+											<mat-checkbox name="active" formControlName="active"> active
+											</mat-checkbox>
+											<!-- <input type="text" placeholder="Active" matInput formControlName="active"/>
+											 -->
+											 <!-- <input type="checkbox" formControlName="active" value="true"/> -->
+									<!-- </mat-form-field>					 -->
+								</div>
+							</div>
+						</div>
+					</form>
+					</div>
+					<!--end::Form-->
+				</ng-template>
+			</mat-tab>
+
+
+		</mat-tab-group>
+	</kt-portlet-body>
+</kt-portlet>
