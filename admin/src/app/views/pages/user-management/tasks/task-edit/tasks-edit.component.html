@@ -9,16 +9,16 @@
 				<i class="la la-cog"></i>
 				<span class="kt-hidden-mobile">Reset</span>
 			</a>
-			<a href="javascript:;" class="btn btn-primary kt-margin-r-10" color="primary" (click)="onSumbit(false)" mat-raised-button matTooltip="Save & Continue">
+			<a href="javascript:;" class="btn btn-primary kt-margin-r-10" color="primary" (click)="onSubmit(false)" mat-raised-button matTooltip="Save & Continue">
 				<span class="kt-hidden-mobile">Save</span>
 			</a>
 			<button mat-icon-button [matMenuTriggerFor]="menu" color="primary">
 				<mat-icon>more_vert</mat-icon>
 			</button>
 			<mat-menu #menu="matMenu">
-				<button mat-menu-item color="primary" (click)="onSumbit(true)">Save & Exit</button>
+				<button mat-menu-item color="primary" (click)="onSubmit(true)">Save & Exit</button>
 				<button mat-menu-item color="primary">Save & Duplicate</button>
-				<button mat-menu-item color="primary" (click)="onSumbit(false)">Save & Continue</button>
+				<button mat-menu-item color="primary" (click)="onSubmit(false)">Save & Continue</button>
 			</mat-menu>
 		</ng-container>
 	</kt-portlet-header>

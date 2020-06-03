@@ -190,7 +190,7 @@ export class TaskEditComponent implements OnInit, OnDestroy {
 	 *
 	 * @param withBack: boolean
 	 */
-	onSumbit(withBack: boolean = false) {
+	onSubmit(withBack: boolean = false) {
 		this.hasFormErrors = false;
 		const controls = this.TaskForm.controls;
 		/** check form */
