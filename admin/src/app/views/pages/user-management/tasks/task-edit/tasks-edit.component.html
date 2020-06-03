@@ -1,7 +1,7 @@
 <kt-portlet>
 	<kt-portlet-header [title]="getComponentTitle()" [class]="'kt-portlet__head--lg'" [viewLoading$]="loading$">
 		<ng-container ktPortletTools>
-			<a [routerLink]="['../']" class="btn btn-secondary kt-margin-r-10" mat-raised-button matTooltip="Back to the Tasks list">
+			<a [routerLink]="['/user-management/tasks']" class="btn btn-secondary kt-margin-r-10" mat-raised-button matTooltip="Back to the Tasks list">
 				<i class="la la-arrow-left"></i>
 				<span class="kt-hidden-mobile">Back</span>
 			</a>
@@ -46,9 +46,9 @@
 											<mat-error>Task Name is
 												<strong>required</strong>
 											</mat-error>
-											<mat-hint align="start">Please enter
+											<!-- <mat-hint align="start">Please enter
 												<strong>Task Name</strong>
-											</mat-hint>
+											</mat-hint> -->
 										</mat-form-field>
 									</div>
 									<div class="col-lg-4 kt-margin-bottom-20-mobile">
@@ -57,9 +57,9 @@
 											<mat-error>User Full Name is
 												<strong>required</strong>
 											</mat-error>
-											<mat-hint align="start">Please enter
+											<!-- <mat-hint align="start">Please enter
 												<strong>Full Name</strong>
-											</mat-hint>
+											</mat-hint> -->
 										</mat-form-field>
 									</div>
 
@@ -69,9 +69,9 @@
 											<mat-error>Email is
 												<strong>required</strong>
 											</mat-error>
-											<mat-hint align="start">Please enter
+											<!-- <mat-hint align="start">Please enter
 												<strong>User Email</strong>
-											</mat-hint>
+											</mat-hint> -->
 										</mat-form-field>
 									</div>
 								</div>
@@ -79,26 +79,26 @@
 									<div class="col-lg-4 kt-margin-bottom-20-mobile">
 										<mat-form-field class="mat-form-field-fluid">
 											<input matInput placeholder="Enter description" [value]="Task.description" formControlName="description"/>
-											<mat-hint align="start">Please enter
+											<!-- <mat-hint align="start">Please enter
 												<strong>description</strong>
-											</mat-hint>
+											</mat-hint> -->
 										</mat-form-field>
 									</div>
 									<div class="col-lg-4 kt-margin-bottom-20-mobile">
 										<mat-form-field class="mat-form-field-fluid">
 											<input matInput type="time" placeholder="Enter time" [value]="Task.time" formControlName="time"/>
-											<mat-hint align="start">Please enter
+											<!-- <mat-hint align="start">Please enter
 												<strong>time </strong>
-											</mat-hint>
+											</mat-hint> -->
 										</mat-form-field>
 									</div>
 
 									<div class="col-lg-4 kt-margin-bottom-20-mobile">
 										<mat-form-field class="mat-form-field-fluid">
 											<input matInput type="datetime" placeholder="Enter date" [value]="Task.date" formControlName="date"/>
-											<mat-hint align="start">Please enter
+											<!-- <mat-hint align="start">Please enter
 												<strong>date</strong>
-											</mat-hint>
+											</mat-hint> -->
 										</mat-form-field>
                                     </div>
                                 </div>
