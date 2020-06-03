@@ -152,7 +152,7 @@ export class TaskEditComponent implements OnInit, OnDestroy {
 	 *
 	 */
 	goBackWithId() {
-		const url = `/User-management/tasks`;
+		const url = `/user-management/tasks`;
 		this.router.navigateByUrl(url, { relativeTo: this.activatedRoute });
 	}
 
@@ -169,7 +169,7 @@ export class TaskEditComponent implements OnInit, OnDestroy {
 			return;
 		}
 
-		url = `/User-management/tasks/edit/${id}`;
+		url = `/user-management/tasks/edit/${id}`;
 		this.router.navigateByUrl(url, { relativeTo: this.activatedRoute });
 	}
 
