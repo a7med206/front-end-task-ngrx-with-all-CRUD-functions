@@ -1,0 +1,14 @@
+import {inject} from '@loopback/core';
+import {DefaultCrudRepository} from '@loopback/repository';
+import {TaskDataSource} from '../datasources';
+import {User, UserRelations} from '../models';
+
+export class UserRepository extends DefaultCrudRepository<
+  User,
+  typeof User.prototype.id,
+  UserRelations
+> {
+  constructor(@inject('datasources.Task') dataSource: TaskDataSource) {
+    super(User, dataSource);
+  }
+}
